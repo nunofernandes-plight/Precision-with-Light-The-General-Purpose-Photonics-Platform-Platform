@@ -1,4 +1,4 @@
-# pcf_regressor.py snippet from the GitHub repository
+# pcf_regressor.py from the GitHub repository
 import joblib
 from sklearn.neural_network import MLPRegressor
 
