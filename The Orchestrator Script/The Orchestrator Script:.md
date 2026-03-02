@@ -24,3 +24,7 @@ When pitching this to an industrial lead, mention LHS.
 Imagine telling a potential client:
 
    "Our software doesn't just predict properties; it includes an Auto-Labeller. It detects if the predicted physics are drifting from the ground truth and automatically triggers a new high-fidelity simulation to re-train itself."
+
+### Structural Reliability 10g - Latin Hypercube sampling (Youtube Video of a Latin Hypercube Sampling demo)
+https://www.youtube.com/watch?v=ugy7XC-cMb0
+
