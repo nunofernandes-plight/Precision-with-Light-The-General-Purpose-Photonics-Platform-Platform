@@ -14,5 +14,5 @@ class PCFModel:
         """
         # Ensure input is 2D
         data = np.atleast_2d(params)
-        scaled_data = self.scaler.transform(data)
+        scaled_data = self.scaler.transform(data) #([[wavelength, pitch, d_over_pitch]]))
         return self.engine.predict(scaled_data)
