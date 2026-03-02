@@ -6,7 +6,7 @@ class PCFModel:
     def __init__(self, config_path="config/config.yaml"):
         # Load hyperparameters from our software-defined config
         self.config = load_yaml(config_path)
-        self.engine = MLPRegressor(
+        self.engine = MLPRegressor([n_real, n_imag],
             hidden_layer_sizes=self.config['ml_hyperparameters']['hidden_layers'],
             activation='relu',
             solver='adam'
