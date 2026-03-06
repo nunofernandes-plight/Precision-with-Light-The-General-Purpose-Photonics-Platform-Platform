@@ -27,10 +27,10 @@ pandas>=2.0.0
 scikit-learn>=1.3.0
 joblib>=1.3.0
 matplotlib>=3.7.0
-PyTorch 2.10.0 latest version
+PyTorch 2.60.0 latest version
 ```
 
-[![PyTorch Version](https://img.shields.io)](https://pytorch.org/get-started/locally/)
+[![PyTorch Version](https://img.shields.io)](https://pytorch.org/blog/pytorch2-6/)
 
 
 
