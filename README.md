@@ -27,9 +27,10 @@ pandas>=2.0.0
 scikit-learn>=1.3.0
 joblib>=1.3.0
 matplotlib>=3.7.0
-![PyTorch Version](https://img.shields.io)
 
 ```
+![PyTorch Version](https://img.shields.io)
+
 
 ### YAML Configuration:
 
