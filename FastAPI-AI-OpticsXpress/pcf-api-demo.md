@@ -15,7 +15,7 @@ and see the optical response instantly.
 ## 1. The Data Schema (schemas.py)
 
 We use Pydantic to enforce physical constraints. 
-This ensures that the AI never attempts to predict results for unphysical geometries (e.g.,<img width="74" height="30" alt="image" src="https://github.com/user-attachments/assets/29529b72-95f0-46d4-9122-680662608006" />)
+This ensures that the AI never attempts to predict results for unphysical geometries (e.g.,<img width="74" height="30" alt="image" src="https://github.com/user-attachments/assets/43985335-d4a7-4666-8774-c46401809499" />)
 
 
 ```
@@ -36,7 +36,7 @@ class FiberOutput(BaseModel):
 
 ## 2. The API Logic (main.py)
 This script handles the "Real-Time" inference.
-Notice the inclusion of the Mortensen <img width="15" height="19" alt="image" src="https://github.com/user-attachments/assets/ff5a6eee-0229-4053-bc03-8aff56938df0" />-cutoff as a logic gate for the is_single_mode flag.
+Notice the inclusion of the Mortensen <img width="15" height="19" alt="image" src="https://github.com/user-attachments/assets/13dbddfb-157d-4d75-8f63-4cf688d2136b" />-cutoff as a logic gate for the is_single_mode flag.
 
 ```
 from fastapi import FastAPI, HTTPException
@@ -90,7 +90,8 @@ We can now optimize entire laser systems in the time it used to take to simulate
 1. Automatic Documentation: FastAPI automatically generates a Swagger UI at /docs. You can send this link to a potential industrial partner, and their software team can test your model immediately without reading a single line of your training code.
 2. Scalability: This API can be deployed in a Docker container on AWS or Azure. You can handle thousands of design requests per second, making it viable for a Cloud-Based Design Foundry.
 3. Digital Twin Integration: A fiber draw-tower controller can call this API in a loop. As the glass is being pulled, the API calculates the optical specs in real-time based on live sensor data (pitch/diameter). If the <img width="37" height="30" alt="image" src="https://github.com/user-attachments/assets/b9349ede-1788-4967-9733-f8546d8b6091" />
- approaches the <img width="15" height="19" alt="image" src="https://github.com/user-attachments/assets/022684f9-87f6-4a03-a381-951d09ea49d6" />-boundary, the system can auto-adjust the draw speed.
+ approaches the <img width="15" height="19" alt="image" src="https://github.com/user-attachments/assets/651638e8-208c-4ece-aecc-29c1a55f6b87" />
+-boundary, the system can auto-adjust the draw speed.
 
 
 
