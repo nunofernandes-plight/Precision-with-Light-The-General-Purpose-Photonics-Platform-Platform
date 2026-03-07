@@ -89,7 +89,7 @@ We can now optimize entire laser systems in the time it used to take to simulate
 
 1. Automatic Documentation: FastAPI automatically generates a Swagger UI at /docs. You can send this link to a potential industrial partner, and their software team can test your model immediately without reading a single line of your training code.
 2. Scalability: This API can be deployed in a Docker container on AWS or Azure. You can handle thousands of design requests per second, making it viable for a Cloud-Based Design Foundry.
-3. Digital Twin Integration: A fiber draw-tower controller can call this API in a loop. As the glass is being pulled, the API calculates the optical specs in real-time based on live sensor data (pitch/diameter). If the <img width="37" height="30" alt="image" src="https://github.com/user-attachments/assets/1694333b-8dd5-49cd-adcc-1e02f734ac23" /> approaches the $\pi$ boundary, the system can auto-adjust the draw speed.
+3. Digital Twin Integration: A fiber draw-tower controller can call this API in a loop. As the glass is being pulled, the API calculates the optical specs in real-time based on live sensor data (pitch/diameter). If the <img width="37" height="30" alt="image" src="https://github.com/user-attachments/assets/7e809f83-2875-47c1-b831-b9d125ab84f4" /> approaches the pi-boundary, the system can auto-adjust the draw speed.
 
 
 
