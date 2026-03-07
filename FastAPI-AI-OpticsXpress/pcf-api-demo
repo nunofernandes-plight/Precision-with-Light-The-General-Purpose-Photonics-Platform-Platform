@@ -1,0 +1,8 @@
+```
+/api
+├── main.py            # FastAPI Application
+├── schemas.py         # Data validation (Pydantic)
+├── engine_wrapper.py  # Model loading and inference logic
+├── /static            # HTML/JS for the Slider Dashboard
+└── requirements.txt
+```
