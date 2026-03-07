@@ -18,7 +18,7 @@ We use Pydantic to enforce physical constraints.
 This ensures that the AI never attempts to predict results for unphysical geometries (e.g.,<img width="74" height="30" alt="image" src="https://github.com/user-attachments/assets/43985335-d4a7-4666-8774-c46401809499" />)
 
 
-```
+```Python 
 from pydantic import BaseModel, Field
 
 class FiberInput(BaseModel):
@@ -38,7 +38,7 @@ class FiberOutput(BaseModel):
 This script handles the "Real-Time" inference.
 Notice the inclusion of the Mortensen <img width="15" height="19" alt="image" src="https://github.com/user-attachments/assets/13dbddfb-157d-4d75-8f63-4cf688d2136b" />-cutoff as a logic gate for the is_single_mode flag.
 
-```
+```Python
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from .schemas import FiberInput, FiberOutput
