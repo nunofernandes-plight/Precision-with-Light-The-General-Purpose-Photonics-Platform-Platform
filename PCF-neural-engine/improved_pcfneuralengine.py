@@ -16,7 +16,25 @@ class PCFModel:
         data = np.atleast_2d(params)
         scaled_data = self.scaler.transform(data) #([[wavelength, pitch, d_over_pitch]]))
         return self.engine.predict(scaled_data)
+
+    def predict_industrial_suite(self, params, dn_dt=1.1e-5):
+        """
+        Extends the MLP prediction with our proprietary Physics Layer.
+        """
+        # 1. Get the Core ML results
+        neff_values = self.predict_n_eff(params)
         
+        # 2. Add the TMI/Thermal Logic (The 'Lightera' Layer)
+        # We calculate TMI threshold based on the predicted neff and input TOC
+        industrial_results = []
+        for i, neff in enumerate(neff_values):
+            # (Logic for TMI kW calculation goes here)
+            industrial_results.append({
+                "neff": neff,
+                "tmi_threshold_kw": self._calculate_tmi(neff, params[i], dn_dt)
+            })
+        return industrial_results
+
 # No physical bounds validation on inputs
 # For a PCF, d/Λ must satisfy 0 < d/Λ < 1 by geometry. Wavelength and pitch have physical training bounds. Querying outside the training 
 #domain will extrapolate silently without any warning — dangerous in an engineering context 
