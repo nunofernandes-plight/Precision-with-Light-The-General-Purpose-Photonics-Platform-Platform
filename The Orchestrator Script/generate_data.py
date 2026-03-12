@@ -57,7 +57,7 @@ class SimulationOrchestrator:
         print(f"Dataset generated with {len(df)} samples saved to {filename}")
 
 if __name__ == "__main__":
-    # Point this to your .fsp or .mph template file
-    orchestrator = SimulationOrchestrator("templates/pcf_base_model.fsp")
-    orchestrator.run_sweep(samples=500)
-    orchestrator.save_to_csv()
+    # FIX: Point strictly to Lumerical MODE files (.lms)
+    # The 'save_to_csv' is removed because saving now happens safely line-by-line inside the loop.
+    orchestrator = DataPipelineOrchestrator("templates/pcf_base_model.lms") 
+    orchestrator.run_sweep(total_samples=500)
