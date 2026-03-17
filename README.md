@@ -1,4 +1,4 @@
-# Project: AI-Optics-PCF-Regressor  
+# Project: AI-Optics-PCF-Regressor_Generator  
 
  ## An Ultra-Fast Neural Network Proxy for Photonic Crystal Fiber Design.
 
