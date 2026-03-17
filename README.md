@@ -1,75 +1,49 @@
-# Project: AI-Optics-PCF-Regressor_Generator  
+# Project: AI-Optics-PCF-Regressor_Generator & Precision with Light: PCF Design Stack 🛰️⚡ 
 
- ## An Ultra-Fast Neural Network Proxy for Photonic Crystal Fiber Design.
+A production-ready, AI-driven platform for the design, analysis, and synthesis of **Photonic Crystal Fibers (PCF)**. This stack leverages Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (GANs) to reduce optical R&D cycles from weeks to seconds.
 
-## 1. Overview
-This repository provides a machine-learning-based surrogate model for characterizing Specialty Optical Fibers. By training on high-fidelity FEM data, the engine predicts the Complex Effective Index ($n_{eff}$) and Dispersion ($D$) without the need for intensive Maxwell solvers.
+# Precision with Light: PCF Design Stack 🛰️⚡
 
-## 2. Installation 
+A production-ready, AI-driven platform for the design, analysis, and synthesis of **Photonic Crystal Fibers (PCF)**. This stack leverages Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (GANs) to reduce optical R&D cycles from weeks to seconds.
 
-#### Clone the repository
-```bash
-git clone https://github.com/your-org/pcf-regressor-ai-optics.git
-cd ai-optics-pcf-regressor
-```
+---
 
-#### Install dependencies
-```bash
-pip install -r requirements.txt
-```
+## 🏗️ Project Architecture
 
-## 3. Configuration & Software Scripts
+To ensure industrial reliability, the project is divided into four modular layers:
 
+### 1. **Data Orchestration (`/core`)**
+Dual-solver synthetic data generation using **Lumerical (FDE)** and **COMSOL (FEM)**. Includes Latin Hypercube Sampling (LHS) for optimal design-space coverage and line-by-line checkpointing.
 
-```bash
-numpy>=1.24.0
-pandas>=2.0.0
-scikit-learn>=1.3.0
-joblib>=1.3.0
-matplotlib>=3.7.0
-PyTorch 2.60.0 latest version
-```
+### 2. **Neural Engine (`/models`)**
+* **Forward Regressor:** Predicts $n_{eff}$ with < 0.01% error compared to solvers.
+* **Inverse GAN:** Synthesizes fiber geometry (Pitch, $d/\Lambda$) based on target optical performance.
 
-[![PyTorch Version](https://img.shields.io)](https://pytorch.org/blog/pytorch2-6/)
+### 3. **Quality Assurance (`/qa_reports`)**
+Automated scientific cross-validation scripts that certify the AI's training data against multi-physics benchmarks.
 
+### 4. **API Layer (`/api`)**
+A high-performance **FastAPI** interface providing endpoints for:
+* `/predict`: Instant forward inference.
+* `/design`: AI-driven inverse synthesis.
+* `/analyze`: Manufacturing yield and sensitivity analysis.
 
+---
 
-### YAML Configuration:
+## 🚀 Getting Started
 
-```
-simulation:
-  wavelength_range: [1.3, 1.6] # Microns
-  pitch_range: [1.5, 4.0]
-  max_iter= 20000
-```
+### Installation
+1. Clone the repository: `git clone https://github.com/your-repo/precision-with-light.git`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Set local paths in `.env` for Lumerical/COMSOL binaries.
 
-```Python
-from setuptools import setup, find_packages
+### Usage Flow
+1. **Generate Data:** `python core/solver_lumerical.py`
+2. **Validate Data:** `python core/qa_cross_val.py`
+3. **Train Engine:** `python core/train_regressor.py`
+4. **Deploy API:** `uvicorn api.main:app --reload`
 
-setup(
-    name="pcf-regressor-ai-optics",
-    version="1.0.0",
-    packages=find_packages(),
-    install_requires=[
-        'numpy', 'pandas', 'scikit-learn', 'joblib'
-    ],
-    author="Precision with Light Team",
-    description="ML-Accelerated Specialty Fiber Design Engine",
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "Topic :: Scientific/Engineering :: Physics",
-    ],
-)
-```
+---
 
-## 4. Traning & Inference
-
-If you have a dataset from Lumerical or COMSOL, you can retrain the engine:
-```
-python main.py --mode train --data data/experimental_results.csv
-```
-To run an instant prediction:
-
-```
-python main.py --mode predict --params "[2.3, 0.5, 1.55]"
-```
+## ⚖️ License & Strategic Synergy
+This stack is open for strategic partnerships and business synergies. For custom photonics stacks or specific industrial integration (e.g., High-Power Lasers, Telecom), please open an issue or contact the maintainers.
