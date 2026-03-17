@@ -6,6 +6,32 @@ A production-ready, AI-driven platform for the design, analysis, and synthesis o
 
 A production-ready, AI-driven platform for the design, analysis, and synthesis of **Photonic Crystal Fibers (PCF)**. This stack leverages Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (GANs) to reduce optical R&D cycles from weeks to seconds.
 
+```Bash
+precision_with_light/
+├── core/                   # The "Heavy Lifting" Physics & ML logic
+│   ├── solver_lumerical.py # Audited: Data generation (Lumerical)
+│   ├── solver_comsol.py    # Audited: Data generation (COMSOL)
+│   ├── models.py           # Audited: MLP Regressor & GAN Architectures
+│   └── physics_utils.py    # Common constants (wavelength ranges, pitch bounds)
+├── data/                   # Data Warehouse (Excluded from GitHub via .gitignore)
+│   ├── raw/                # Original .csv files from solvers
+│   ├── processed/          # Scaled/Normalized data for training
+│   └── qa_reports/         # Cross-validation/Certification PDFs
+├── api/                    # The "Public Face" of the project
+│   ├── main.py             # FastAPI entry point
+│   ├── schemas.py          # Pydantic models for request/response validation
+│   └── endpoints/          # Specialized routes (Predict, Design, Analyze)
+├── notebooks/              # For R&D, plotting, and prototyping only
+├── models/                 # Serialized Production Weights (.pkl, .pt)
+│   ├── final_mlp.pkl       # Trained Regressor
+│   └── final_gan.pt        # Trained Inverse Design Engine
+├── tests/                  # Automated unit tests for code integrity
+├── .env                    # Local environment variables (API keys, file paths)
+├── requirements.txt        # Production dependencies
+└── README.md               # Project documentation and partner onboarding
+```
+
+
 ---
 
 ## 🏗️ Project Architecture
