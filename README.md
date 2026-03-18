@@ -84,6 +84,30 @@ To run the platform locally or integrate our REST API into your pipeline:
    git clone [https://github.com/nunofernandes-plight/Precision-with-Light-The-General-Purpose-Photonics-Platform-Platform.git](https://github.com/nunofernandes-plight/Precision-with-Light-The-General-Purpose-Photonics-Platform-Platform.git)
    cd Precision-with-Light-The-General-Purpose-Photonics-Platform-Platform
 
+2. **Install Dependencies**
+```Bash
+pip install -r requirements.txt
+```
+3. **Configure Solvers**: Set your local paths for Lumerical and COMSOL binaries in the .env file.
+
+## Strategic Synergies & Integration
+This platform is designed for deep integration with next-generation optical manufacturing, including AI-driven macro-optics platforms and 3D volumetric printing systems.
+
+If you are interested in utilizing our Generative API, adding a new hardware export module, or partnering on optical software integration, please review our CONTRIBUTING.md or open a dialogue via GitHub Issues.
+
+```Bash
+### **Your Next Immediate Steps**
+
+1. **Commit this `README.md`** to your `main` branch.
+2. **Create the Folders:** Create the 4 folders (`1_intent_layer`, `2_generative_engine`, `3_simulation_bridge`, `4_fabrication_export`) in your repo.
+3. **Migrate the Code:** Move the audited PCF scripts into their respective folders as outlined in the Reappraisal table.
+
+Once your GitHub is physically restructured to match this README, you will officially have a General Purpose Platform framework. 
+
+**Shall we build the Universal Data Contract (`schemas.py`) for the `1_intent_layer` next, so the platform can start accepting API requests?**
+```
+
+
 ---
 
 ## ⚖️ License & Strategic Synergy
