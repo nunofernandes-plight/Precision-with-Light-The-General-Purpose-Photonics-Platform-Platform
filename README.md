@@ -1,4 +1,4 @@
-# Project: AI-Optics-PCF-Regressor-Generator & Precision with Light: PCF Design Stack 🛰️⚡ 
+# Precision with Light - The General Purpose Photonics Platform🛰️⚡ 
 
 A production-ready, AI-driven platform for the design, analysis, and synthesis of **Photonic Crystal Fibers (PCF)**. This stack leverages Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (GANs) to reduce optical R&D cycles from weeks to seconds.
 
