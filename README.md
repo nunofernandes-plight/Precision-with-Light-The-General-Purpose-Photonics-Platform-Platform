@@ -1,6 +1,6 @@
 # Precision with Light - The General Purpose Photonics Platform🛰️⚡ 
 
-A production-ready, AI-driven platform for the design, analysis, and synthesis of **Photonic Crystal Fibers (PCF)**. This stack leverages Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (GANs) to reduce optical R&D cycles from weeks to seconds.
+A production-ready, AI-driven platform for the design, analysis, and synthesis of. This stack leverages Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (GANs) to reduce optical R&D cycles from weeks to seconds.
 
 # Precision with Light: PCF Design Stack 🛰️⚡
 
@@ -34,40 +34,57 @@ precision_with_light/
 
 ---
 
-## 🏗️ Project Architecture
 
-To ensure industrial reliability, the project is divided into four modular layers:
 
-### 1. **Data Orchestration (`/core`)**
-Dual-solver synthetic data generation using **Lumerical (FDE)** and **COMSOL (FEM)**. Includes Latin Hypercube Sampling (LHS) for optimal design-space coverage and line-by-line checkpointing.
+[![Platform Status](https://img.shields.io/badge/Status-Enterprise_Beta-blue.svg)]()
+[![Core Module](https://img.shields.io/badge/Active_Module-Specialty_PCF-success.svg)]()
+[![Architecture](https://img.shields.io/badge/Architecture-4--Tier_Modular-purple.svg)]()
 
-### 2. **Neural Engine (`/models`)**
-* **Forward Regressor:** Predicts $n_{eff}$ with < 0.01% error compared to solvers.
-* **Inverse GAN:** Synthesizes fiber geometry (Pitch, $d/\Lambda$) based on target optical performance.
+**Precision with Light** is a software-defined, general-purpose photonics manufacturing and simulation platform. We translate high-level optical intent into physically validated, fab-ready geometries using Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (cWGAN-GP).
 
-### 3. **Quality Assurance (`/qa_reports`)**
-Automated scientific cross-validation scripts that certify the AI's training data against multi-physics benchmarks.
-
-### 4. **API Layer (`/api`)**
-A high-performance **FastAPI** interface providing endpoints for:
-* `/predict`: Instant forward inference.
-* `/design`: AI-driven inverse synthesis.
-* `/analyze`: Manufacturing yield and sensitivity analysis.
+Our mission is to reduce optical R&D cycles from weeks to seconds, providing a unified API bridge between abstract optical targets and physical manufacturing constraints.
 
 ---
 
-## 🚀 Getting Started
+## 🏗️ The 4-Tier Platform Architecture
 
-### Installation
-1. Clone the repository: `git clone https://github.com/your-repo/precision-with-light.git`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Set local paths in `.env` for Lumerical/COMSOL binaries.
+The platform is designed to be solver-agnostic and fully modular, allowing rapid integration of new photonic devices (Fibers, Metasurfaces, PICs) into the generative pipeline.
 
-### Usage Flow
-1. **Generate Data:** `python core/solver_lumerical.py`
-2. **Validate Data:** `python core/qa_cross_val.py`
-3. **Train Engine:** `python core/train_regressor.py`
-4. **Deploy API:** `uvicorn api.main:app --reload`
+### 1. The Intent Layer (`/1_intent_layer`)
+* **Universal Data Contract:** Pydantic schemas that standardize how optical targets (e.g., $n_{eff}$, Dispersion) and fabrication limits (e.g., minimum feature size) are communicated via API.
+
+### 2. Generative Engine (`/2_generative_engine`)
+* **The AI Foundry:** Houses our proprietary WGANs and MLP Regressors.
+* *Current Active Module:* **Specialty Photonic Crystal Fibers (PCF)**. Synthesizes fiber geometries (Pitch, $d/\Lambda$) based on multi-parameter optical targets while mathematically enforcing physical non-overlap constraints.
+
+### 3. Simulation Bridge & QA (`/3_simulation_bridge`)
+* **Dual-Solver Verification:** Automated orchestrators for **Lumerical (FDE/FDTD)** and **COMSOL Multiphysics**.
+* **The Trust Layer:** Automated cross-validation scripts that certify AI training datasets across multiple physics engines to guarantee scientific rigor.
+
+### 4. Fabrication Export (`/4_fabrication_export`)
+* **CAM/Fab Ready:** Translates generated tensor arrays into manufacturable digital files (e.g., Nanoscribe 2PP 3D meshes, GDSII for foundries).
+
+---
+
+## 🚀 Active Module: Specialty PCF Stack
+
+While the platform is general-purpose, our flagship operational stack is the **Specialty PCF Engine**. 
+
+**Capabilities:**
+* **Forward Oracle:** Predicts effective refractive index and mode area with < 0.01% error compared to FEM solvers.
+* **Inverse Architect:** Generates manufacturable PCF cross-sections from user-defined performance targets.
+* **TMI & Thermal Guard:** Analyzes geometries for High-Power Laser limits (Transverse Mode Instability).
+
+---
+
+## 🛠️ Getting Started for Partners
+
+To run the platform locally or integrate our REST API into your pipeline:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/nunofernandes-plight/Precision-with-Light-The-General-Purpose-Photonics-Platform-Platform.git](https://github.com/nunofernandes-plight/Precision-with-Light-The-General-Purpose-Photonics-Platform-Platform.git)
+   cd Precision-with-Light-The-General-Purpose-Photonics-Platform-Platform
 
 ---
 
