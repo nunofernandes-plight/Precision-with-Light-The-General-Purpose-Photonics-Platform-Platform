@@ -95,17 +95,6 @@ This platform is designed for deep integration with next-generation optical manu
 
 If you are interested in utilizing our Generative API, adding a new hardware export module, or partnering on optical software integration, please review our CONTRIBUTING.md or open a dialogue via GitHub Issues.
 
-```Bash
-### **Your Next Immediate Steps**
-
-1. **Commit this `README.md`** to your `main` branch.
-2. **Create the Folders:** Create the 4 folders (`1_intent_layer`, `2_generative_engine`, `3_simulation_bridge`, `4_fabrication_export`) in your repo.
-3. **Migrate the Code:** Move the audited PCF scripts into their respective folders as outlined in the Reappraisal table.
-
-Once your GitHub is physically restructured to match this README, you will officially have a General Purpose Platform framework. 
-
-**Shall we build the Universal Data Contract (`schemas.py`) for the `1_intent_layer` next, so the platform can start accepting API requests?**
-```
 
 
 ---
