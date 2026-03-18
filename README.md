@@ -1,6 +1,6 @@
 # Precision with Light - The General Purpose Photonics Platform🛰️⚡ 
 
-A production-ready, AI-driven platform for the design, analysis, and synthesis of. This stack leverages Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (GANs) to reduce optical R&D cycles from weeks to seconds.
+A production-ready, AI-driven platform for the design, analysis, and synthesis of photonics industry product, designs and software. This stack leverages Physics-Informed Neural Networks (PINNs) and Generative Adversarial Networks (GANs) to reduce optical R&D cycles from weeks to seconds.
 
 
 
