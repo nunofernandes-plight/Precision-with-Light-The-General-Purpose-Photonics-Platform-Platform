@@ -1,35 +1,40 @@
+import os
 import json
-from typing import Optional
 from .schemas import OpticalTargets, ComponentType, ManufacturingMethod
 
 class IntentParser:
     """
-    Translates natural language 'Photonics English' into strict JSON schemas.
+    The 'Front Door': Converts natural language into structured Pydantic schemas.
     """
-    def __init__(self, api_key: str):
-        # In a real platform, this would initialize your LLM client (e.g., Google GenAI)
-        self.client = "LLM_Client_Placeholder"
+    def __init__(self, model_provider="gemini-3-flash"):
+        self.model = model_provider
 
-    def parse_prompt(self, user_prompt: str) -> dict:
+    def extract_intent(self, user_query: str) -> dict:
         """
-        Example Input: "I need a hollow-core fiber for 1550nm with low dispersion."
+        In production, this sends a prompt to the LLM.
+        Example Prompt: 'Extract optical targets from: "I need a 1550nm fiber with high neff for Nanoscribe."'
         """
-        # System instructions for the LLM to act as a Photonics Expert
-        system_instruction = (
-            "Extract optical parameters from user text. "
-            "Return JSON with: wavelength_nm, target_n_eff, component_type."
-        )
+        # --- Logic for LLM Prompting ---
+        # The LLM is instructed to return a JSON matching our OpticalTargets schema.
         
-        # Mocking the LLM response logic for our architectural build
-        # In production, this returns a JSON string parsed into our Pydantic model
-        mock_extracted_data = {
+        # MOCK SUCCESSFUL EXTRACTION:
+        extracted_json = {
             "wavelength_nm": 1550.0,
-            "target_n_eff": 1.44, # Derived from context
-            "component_type": ComponentType.PCF,
-            "method": ManufacturingMethod.NANOSCRIBE_2PP
+            "target_n_eff": 1.445,
+            "component_type": "photonic_crystal_fiber",
+            "method": "nanoscribe_2pp"
         }
         
-        return mock_extracted_data
+        return extracted_json
 
-    def validate_intent(self, raw_data: dict) -> OpticalTargets:
-        return OpticalTargets(**raw_data)
+    def create_request_packet(self, user_query: str):
+        raw = self.extract_intent(user_query)
+        
+        # Validation happens here via Pydantic
+        targets = OpticalTargets(
+            wavelength_nm=raw["wavelength_nm"],
+            target_n_eff=raw["target_n_eff"]
+        )
+        
+        print(f"[Parser] Intent Extracted: λ={targets.wavelength_nm}nm, n_eff={targets.target_n_eff}")
+        return targets, raw["method"]
