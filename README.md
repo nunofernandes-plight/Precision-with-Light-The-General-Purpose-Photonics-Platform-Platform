@@ -90,6 +90,10 @@ pip install -r requirements.txt
 ```
 3. **Configure Solvers**: Set your local paths for Lumerical and COMSOL binaries in the .env file.
 
+```Bash
+To run the standard design flow, use gateway.py. To run the RAG-augmented foundry-aware flow, use gateway_v2.py
+```
+
 ## Strategic Synergies & Integration
 This platform is designed for deep integration with next-generation optical manufacturing, including AI-driven macro-optics platforms and 3D volumetric printing systems.
 
