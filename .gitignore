@@ -1,1 +1,36 @@
+# Byte-compiled / optimized / DLL files
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables (CRITICAL: Never commit the real .env)
+
 .env
+.venv
+env/
+venv/
+
+
+# AI Models & Large Data
+# We track the code, but usually store the heavy .pt files in an external bucket or LFS
+
+*.pt
+*.pth
+*.h5
+
+
+# OS generated files
+
+.DS_Store
+Thumbs.db
+
+
+# Fabrication & Simulation Outputs
+# Prevents thousands of local GDSII or log files from being uploaded
+
+exports/*.gds
+exports/*.stl
+*.log
+*.fsp
+*.mph
