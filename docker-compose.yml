@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # 1. The Core AI & API Platform
+  plight_core_api:
+    build: .
+    container_name: plight_gateway
+    ports:
+      - "8000:8000"
+    environment:
+      # This tells your rag_config.py to connect to the internal Docker network Database
+      - MONGO_URI=mongodb://plight_mongo:27017/ 
+    depends_on:
+      - plight_mongo
+    volumes:
+      # Maps your local 'exports' folder so GDSII files generated in the container save to your actual computer
+      - ./exports:/app/exports 
+
+  # 2. The DSR-CRAG Ground Truth Database
+  plight_mongo:
+    image: mongo:latest
+    container_name: plight_database
+    ports:
+      - "27017:27017"
+    volumes:
+      # Ensures database data persists even if the container is shut down
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
