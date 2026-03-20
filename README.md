@@ -90,6 +90,9 @@ pip install -r requirements.txt
 ```
 3. **Configure Solvers**: Set your local paths for Lumerical and COMSOL binaries in the .env file.
 
+
+##  The "Refactor" with DSR-CRAG Best Practice
+
 ```Bash
 To run the standard design flow, use gateway.py. To run the RAG-augmented foundry-aware flow, use gateway_v2.py
 ```
