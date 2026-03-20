@@ -2,6 +2,17 @@ import os
 from pydantic import BaseModel, Field
 from pymongo import MongoClient
 from pymongo.collection import Collection
+from dotenv import load_dotenv
+
+# Load variables from .env if it exists
+load_dotenv()
+
+class VectorStoreConfig:
+    def __init__(self):
+        # Professional fallback: If MONGO_URI isn't in .env, use a local mock string
+        self.mongo_uri = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+        if "localhost" in self.mongo_uri:
+            print("⚠️ WARNING: Running with local MongoDB fallback. Not for production.")
 
 class VectorStoreConfig(BaseModel):
     """Configuration for MongoDB Atlas Vector Search."""
