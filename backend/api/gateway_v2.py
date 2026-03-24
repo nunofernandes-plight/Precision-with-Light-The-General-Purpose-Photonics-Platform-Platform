@@ -18,6 +18,20 @@ from ..4_fabrication_export.export_gdsii import GDSIIExporter
 
 app = FastAPI(title="Precision with Light: Enterprise Foundry Platform", version="2.0")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+# ... (your app initialization)
+app = FastAPI(title="Precision with Light: Enterprise Foundry Platform", version="2.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # In production, replace with your specific frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 # Initialize Services
 grader = ReflexiveGrader()
 rewriter = QueryRewriter()
