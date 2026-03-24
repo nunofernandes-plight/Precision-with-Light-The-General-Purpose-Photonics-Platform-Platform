@@ -1,3 +1,6 @@
+// If it is in fetch.ts, your import in the UI looks like this:
+import { ingestPaper } from "@/lib/fetch";
+
 // Define the TypeScript interface mirroring the Python Pydantic schema
 export interface ResearchPaperPayload {
   title: string;
