@@ -2,14 +2,16 @@ import sys
 import os
 import importlib
 
-# 1. Get the absolute path to the 'backend' directory
+# 1. Dynamically find the backend root directory
 backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if backend_dir not in sys.path:
     sys.path.append(backend_dir)
 
-# 2. Use importlib to bypass the number syntax rule
-intent_layer = importlib.import_module("1_intent_layer.schemas")
-ResearchPaperIngestion = intent_layer.ResearchPaperIngestion
+# 2. Bypass the "No numbers in imports" rule using importlib
+intent_module = importlib.import_module("1_intent_layer.schemas")
+
+# 3. Pull your Pydantic class into the gateway
+ResearchPaperIngestion = intent_module.ResearchPaperIngestion
 
 from fastapi import APIRouter
 # Import your schema (adjust the path based on your exact folder structure)
