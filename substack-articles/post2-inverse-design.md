@@ -4,7 +4,7 @@
 
 ---
 
-*This is the second post in the **Precision with Light** founding series. If you missed the first post — the story of six research papers and the platform they made inevitable — [you can read it here](https://precisionwithlight.substack.com/p/how-six-research-papers-convinced).*
+*This is the second post in the **Precision with Light** founding series. If you missed the first post — the story of six research papers and the platform they made inevitable — [you can read it here](https://github.com/nunofernandes-plight/Precision-with-Light-The-Photonics-Platform/blob/main/substack-articles/post1_founding_narrative.md).*
 
 ---
 
